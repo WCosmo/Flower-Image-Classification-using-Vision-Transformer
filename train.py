@@ -1,4 +1,4 @@
-
+import argparse
 import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
@@ -86,6 +86,14 @@ def tf_dataset(images, batch=32):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Takes a txt file and run BPE tokenizer')
+    parser.add_argument('--datapath', type=str, default='./flower_photos')
+    
+    args = parser.parse_args()
+
+    print('\nTrain\n')
+    print('Input dataset: ', args.datapath, '\n\n')
+    
     """ Seeding """
     np.random.seed(42)
     tf.random.set_seed(42)
@@ -94,7 +102,7 @@ if __name__ == "__main__":
     create_dir("files")
 
     """ Paths """
-    dataset_path = "/media/nikhil/Seagate Backup Plus Drive/ML_DATASET/flowers"
+    dataset_path = args.datapath
     model_path = os.path.join("files", "model.h5")
     csv_path = os.path.join("files", "log.csv")
 
