@@ -3,6 +3,7 @@ import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 import numpy as np
+import matplotlib.pyplot as plt
 import cv2
 from glob import glob
 from sklearn.utils import shuffle
@@ -128,11 +129,22 @@ if __name__ == "__main__":
         EarlyStopping(monitor='val_loss', patience=50, restore_best_weights=False),
     ]
 
-    model.fit(
+    hh = model.fit(
         train_ds,
         epochs=hp["num_epochs"],
         validation_data=valid_ds,
         callbacks=callbacks
     )
+    
+    acc = hh.history['accuracy']
+    epochs = len(acc)
+
+    plt.figure()
+    plt.xlabel('Epochs')
+    plt.ylabel('Accuracy')
+    plt.plot(range(epochs), acc)
+    plt.title('Accuracy per Epoch')
+    plt.show()
+
 
     ## ...
