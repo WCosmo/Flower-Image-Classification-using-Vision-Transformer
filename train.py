@@ -152,18 +152,18 @@ if __name__ == "__main__":
     print(history.history.keys())
 
     
-    #acc_train = history.['accuracy']
-    #acc_val = history.['val_accuracy']
+    acc_train = history.history['acc']
+    acc_val = history.history['val_acc']
 
-    nn = str('Model: ' + str(hp["num_layers"]) + ' layers' + str(hp["num_heads"]) + 'heads')
-    print(nn)
-    #plt.plot(acc_train, label='Train')
-    #plt.plot(acc_val, label='Val')
-    #plt.title(nn)
-    #plt.xlabel('Epoch')
-    #plt.ylabel('Acc')
-    #plt.legend()
-    #plt.show()
+    nn = str('Model: ' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads')
+    
+    plt.plot(acc_train, label='Train')
+    plt.plot(acc_val, label='Val')
+    plt.title(nn)
+    plt.xlabel('Epoch')
+    plt.ylabel('Acc')
+    plt.legend()
+    plt.show()
     
 
 
