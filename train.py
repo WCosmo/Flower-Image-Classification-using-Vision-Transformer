@@ -86,9 +86,7 @@ def tf_dataset(images, batch=32):
     return ds
 
 def update_hp(epochs, heads, layers):
-    global hp["num_epochs"]
-    global hp["num_layers"]
-    global hp["num_heads"]
+    global hp    
     hp["num_epochs"] = epochs
     hp["num_layers"] = layers
     hp["num_heads"] = heads
