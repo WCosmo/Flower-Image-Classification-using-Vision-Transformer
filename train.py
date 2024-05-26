@@ -85,19 +85,34 @@ def tf_dataset(images, batch=32):
     ds = ds.map(parse).batch(batch).prefetch(8)
     return ds
 
+def update_hp(epochs, heads, layers):
+    global hp["num_epochs"]
+    global hp["num_layers"]
+    global hp["num_heads"]
+    hp["num_epochs"] = epochs
+    hp["num_layers"] = layers
+    hp["num_heads"] = heads
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run the train script given a dataset path.')
     parser.add_argument('--datapath', type=str, default='./flower_photos')
+    parser.add_argument('--epochs', type=int, default=50)
+    parser.add_argument('--heads', type=int, default=12)
+    parser.add_argument('--layers', type=int, default=12)
     
     args = parser.parse_args()
 
+    update_hp(args.epochs, args.heads, args.layers)
+
     print('\nTrain\n')
-    print('Input dataset: ', args.datapath, '\n\n')
+    print('Input dataset: ', args.datapath)
+    print('Training epochs: ', hp["num_epochs"])
+    print('Model layers: ', hp["num_layers"])
+    print('Model heads: ', hp["num_heads"], '\n\n')
     
     """ Seeding """
-    np.random.seed(42)
-    tf.random.set_seed(42)
+    np.random.seed(6)
+    tf.random.set_seed(6)
 
     """ Directory for storing files """
     create_dir("files")
@@ -143,7 +158,7 @@ if __name__ == "__main__":
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.plot(range(epochs), acc)
-    plt.title('Accuracy per Epoch')
+    plt.title(str('Model: ' + str(hp["num_layers"]) + ' layers' + str(hp["num_heads"]) + 'heads'))
     plt.show()
 
 
