@@ -142,21 +142,25 @@ if __name__ == "__main__":
         EarlyStopping(monitor='val_loss', patience=50, restore_best_weights=False),
     ]
 
-    hh = model.fit(
+    model.fit(
         train_ds,
         epochs=hp["num_epochs"],
         validation_data=valid_ds,
         callbacks=callbacks
     )
     
-    acc = hh.history['accuracy']
-    epochs = len(acc)
+    history = model.history
+    acc_train = history['accuracy']
+    acc_val = history['val_accuracy']
 
-    plt.figure()
-    plt.xlabel('Epochs')
-    plt.ylabel('Accuracy')
-    plt.plot(range(epochs), acc)
-    plt.title(str('Model: ' + str(hp["num_layers"]) + ' layers' + str(hp["num_heads"]) + 'heads'))
+    nn = str('Model: ' + str(hp["num_layers"]) + ' layers' + str(hp["num_heads"]) + 'heads')
+
+    plt.plot(acc_train, label='Train')
+    plt.plot(acc_val, label='Val')
+    plt.title(nn)
+    plt.xlabel('Epoch')
+    plt.ylabel('Acc')
+    plt.legend()
     plt.show()
 
 
