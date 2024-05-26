@@ -149,7 +149,7 @@ if __name__ == "__main__":
         callbacks=callbacks
     )
     
-    print(history.keys())
+    print(history.history.keys())
 
     '''
     acc_train = history.['accuracy']
