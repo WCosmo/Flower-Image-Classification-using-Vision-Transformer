@@ -155,11 +155,20 @@ if __name__ == "__main__":
     acc_train = history.history['acc']
     acc_val = history.history['val_acc']   
 
-    nn = str('TrainModel_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.txt')
+    nn = str('TrainAcc_Model' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.txt')
     
     with open(nn, 'w') as f:
         for k in acc_train:
-            f.write(str(k))        
+            f.write(str(k))     
+            f.write('\n')
+        #f.write(str(acc_val)) 
+
+    na = str('ValAcc_Model' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.txt')
+    
+    with open(na, 'w') as f:
+        for k in acc_val:
+            f.write(str(k))     
+            f.write('\n')
         #f.write(str(acc_val)) 
         
     
