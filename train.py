@@ -159,14 +159,11 @@ if __name__ == "__main__":
 
     nn = str('Model: ' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads')
     
-    plt.plot(acc_train, label='Train')
-    plt.plot(acc_val, label='Val')
+    plt.plot(np.array(acc_train), label='Train')
+    plt.plot(np.array(acc_val), label='Val')
     plt.title(nn)
     plt.xlabel('Epoch')
     plt.ylabel('Acc')
     plt.legend()
     plt.show()
     
-
-
-    ## ...
