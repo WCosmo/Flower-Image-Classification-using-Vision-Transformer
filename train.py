@@ -149,11 +149,13 @@ if __name__ == "__main__":
         callbacks=callbacks
     )
     
-    print(history.history.keys())
-
+    #print(history.history.keys())
     
     acc_train = history.history['acc']
     acc_val = history.history['val_acc']
+
+    print(acc_train)
+    print(acc_val)
 
     nn = str('Model: ' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads')
     
