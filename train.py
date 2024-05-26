@@ -150,8 +150,8 @@ if __name__ == "__main__":
     )
     
     history = model.history
-    acc_train = history['accuracy']
-    acc_val = history['val_accuracy']
+    acc_train = history.history['accuracy']
+    acc_val = history.history['val_accuracy']
 
     nn = str('Model: ' + str(hp["num_layers"]) + ' layers' + str(hp["num_heads"]) + 'heads')
 
