@@ -24,7 +24,7 @@ hp["batch_size"] = 32
 hp["lr"] = 1e-4
 hp["num_epochs"] = 500
 hp["num_classes"] = 5
-hp["class_names"] = ["daisy", "dandelion", "rose", "sunflower", "tulip"]
+hp["class_names"] = ["daisy", "dandelion", "roses", "sunflowers", "tulips"]
 
 hp["num_layers"] = 12
 hp["hidden_dim"] = 768
@@ -86,7 +86,7 @@ def tf_dataset(images, batch=32):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Takes a txt file and run BPE tokenizer')
+    parser = argparse.ArgumentParser(description='Run the train script given a dataset path.')
     parser.add_argument('--datapath', type=str, default='./flower_photos')
     
     args = parser.parse_args()
