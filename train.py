@@ -154,13 +154,17 @@ if __name__ == "__main__":
     acc_train = history.history['acc']
     acc_val = history.history['val_acc']   
 
-    nn = str('Model: ' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads')
+    nn = str('Model_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.csv')
     
-    plt.plot(np.array(acc_train), label='Train')
-    plt.plot(np.array(acc_val), label='Val')
-    plt.title(nn)
-    plt.xlabel('Epoch')
-    plt.ylabel('Acc')
-    plt.legend()
-    plt.show()
+    data = {
+        'Epoch': range(1, len(acc_train) + 1),  # Epochs starting from 1
+        'Training Accuracy': acc_train,
+        'Validation Accuracy': acc_val
+    }
+
+    with open(nn, 'w', newline='') as csvfile:
+        fieldnames = data.keys()
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(data)
     
