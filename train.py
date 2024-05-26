@@ -155,17 +155,10 @@ if __name__ == "__main__":
     acc_train = history.history['acc']
     acc_val = history.history['val_acc']   
 
-    nn = str('TrainModel_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.csv')
+    nn = str('TrainModel_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.txt')
     
-    data = {
-        'Epoch': range(1, len(acc_train) + 1),  # Epochs starting from 1
-        'Training Accuracy': acc_train,
-        'Validation Accuracy': acc_val
-    }
-
-    with open(nn, 'w', newline='') as csvfile:
-        fieldnames = data.keys()
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(data)
+    with open(nn, 'w') as f:
+        f.write(acc_train) 
+        f.write(acc_val) 
+        
     
