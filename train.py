@@ -154,7 +154,7 @@ if __name__ == "__main__":
     acc_train = history.history['acc']
     acc_val = history.history['val_acc']   
 
-    nn = str('Model_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.csv')
+    nn = str('TrainModel_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.csv')
     
     data = {
         'Epoch': range(1, len(acc_train) + 1),  # Epochs starting from 1
