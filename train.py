@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     """ Paths """
     dataset_path = args.datapath
-    model_path = os.path.join("files", "model.h5")
+    model_path = os.path.join("files", "model.keras")
     csv_path = os.path.join("files", "log.csv")
 
     """ Dataset """
