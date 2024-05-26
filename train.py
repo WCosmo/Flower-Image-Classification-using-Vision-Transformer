@@ -150,6 +150,8 @@ if __name__ == "__main__":
     )
     
     print(history.keys())
+
+    '''
     acc_train = history.['accuracy']
     acc_val = history.['val_accuracy']
 
@@ -162,6 +164,7 @@ if __name__ == "__main__":
     plt.ylabel('Acc')
     plt.legend()
     plt.show()
+    '''
 
 
     ## ...
