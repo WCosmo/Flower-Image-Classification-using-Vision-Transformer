@@ -142,16 +142,16 @@ if __name__ == "__main__":
         EarlyStopping(monitor='val_loss', patience=50, restore_best_weights=False),
     ]
 
-    model.fit(
+    history = model.fit(
         train_ds,
         epochs=hp["num_epochs"],
         validation_data=valid_ds,
         callbacks=callbacks
     )
     
-    history = model.history
-    acc_train = history.history['accuracy']
-    acc_val = history.history['val_accuracy']
+    print(history.keys())
+    acc_train = history.['accuracy']
+    acc_val = history.['val_accuracy']
 
     nn = str('Model: ' + str(hp["num_layers"]) + ' layers' + str(hp["num_heads"]) + 'heads')
 
