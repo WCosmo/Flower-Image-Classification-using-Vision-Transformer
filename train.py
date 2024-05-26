@@ -158,7 +158,8 @@ if __name__ == "__main__":
     nn = str('TrainModel_' + str(hp["num_layers"]) + 'layers' + str(hp["num_heads"]) + 'heads' + '.txt')
     
     with open(nn, 'w') as f:
-        f.write(acc_train) 
-        f.write(acc_val) 
+        for k in acc_train:
+            f.write(str(k))        
+        #f.write(str(acc_val)) 
         
     
