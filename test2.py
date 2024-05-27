@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     update_hp(args.epochs, args.heads, args.layers)
 
-    print('\Test\n')
+    print('\nTest\n')
     print('Input dataset: ', args.datapath)
     print('Training epochs: ', hp["num_epochs"])
     print('Model layers: ', hp["num_layers"])
@@ -74,4 +74,4 @@ if __name__ == "__main__":
         metrics=["acc"]
     )
 
-    model.evaluate(test_ds)
+    result = model.evaluate(test_ds)    
