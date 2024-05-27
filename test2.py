@@ -51,8 +51,8 @@ if __name__ == "__main__":
     tf.random.set_seed(42)
 
     """ Paths """
-    dataset_path = "/media/nikhil/Seagate Backup Plus Drive/ML_DATASET/flowers"
-    model_path = os.path.join("files", "model.h5")
+    dataset_path = args.datapath
+    model_path = os.path.join("files", "model.keras")
 
     """ Dataset """
     train_x, valid_x, test_x = load_data(dataset_path)
