@@ -74,5 +74,5 @@ if __name__ == "__main__":
         metrics=["acc"]
     )
 
-    print('Evaluate')
+    print('\n\nEvaluate:\n')
     result = model.evaluate(test_ds)    
