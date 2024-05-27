@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 from patchify import patchify
 import tensorflow as tf
-from train import load_data, tf_dataset
+from train2 import load_data, tf_dataset
 from vit import ViT
 
 """ Hyperparameters """
