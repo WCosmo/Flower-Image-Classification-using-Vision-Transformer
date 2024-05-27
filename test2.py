@@ -30,15 +30,13 @@ hp["dropout_rate"] = 0.1
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run the train script given a dataset path.')
+    parser = argparse.ArgumentParser(description='Run the test script given a dataset path.')
     parser.add_argument('--datapath', type=str, default='./cats_vs_dogs')
     parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--heads', type=int, default=12)
     parser.add_argument('--layers', type=int, default=12)
 
-    args = parser.parse_args()
-
-    update_hp(args.epochs, args.heads, args.layers)
+    args = parser.parse_args()    
 
     print('\Test\n')
     print('Input dataset: ', args.datapath)
