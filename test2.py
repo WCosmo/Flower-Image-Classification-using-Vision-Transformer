@@ -28,7 +28,12 @@ hp["mlp_dim"] = 3072
 hp["num_heads"] = 12
 hp["dropout_rate"] = 0.1
 
-
+def update_hp(epochs, heads, layers):
+    global hp
+    hp["num_epochs"] = epochs
+    hp["num_layers"] = layers
+    hp["num_heads"] = heads
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run the test script given a dataset path.')
     parser.add_argument('--datapath', type=str, default='./cats_vs_dogs')
@@ -37,6 +42,8 @@ if __name__ == "__main__":
     parser.add_argument('--layers', type=int, default=12)
 
     args = parser.parse_args()    
+
+    update_hp(args.epochs, args.heads, args.layers)
 
     print('\Test\n')
     print('Input dataset: ', args.datapath)
